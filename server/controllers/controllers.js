@@ -63,6 +63,7 @@ class Controllers {
             const result = await Food.create(form)
             res.status(201).json({
                 id:result.id,
+                title:result.title,
                 price:result.price,
                 ingredients:result.ingredients,
                 tag:result.tag,
@@ -74,10 +75,31 @@ class Controllers {
         }
     }
     static async get(req,res) {
-        
+        try {
+            let arr = []
+            let food = await Food.findAll({where:{UserId:req.access_id}})
+            food.forEach(result=>{arr.push({
+                    id:result.id,
+                    title:result.title,
+                    price:result.price,
+                    ingredients:result.ingredients,
+                    tag:result.tag,
+                    UserId:result.UserId,
+            })})
+            
+            res.status(200).json(arr)
+        } catch (error) {
+            console.log(error)
+            res.status(500).json({
+                message:"Internal Error"
+            })
+        }
     }
     static async delete(req,res) {
-        
+        let result = await Food.destroy({where:{id:req.params.id}})
+        res.status(200).json({
+            "message":"Successfully delete foods from your menu"
+        })
     }
     //foods controllers ends here
 }

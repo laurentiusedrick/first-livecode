@@ -24,10 +24,8 @@ class Access {
         try {
             let food = await Food.findByPk(req.params.id)
             if (food.UserId === req.access_id) {
-                let result = await Food.destroy({where:{id:req.params.id}})
-                res.status(200).json({
-                    "message":"Successfully delete foods from your menu"
-                })
+                console.log("success authorize")
+                next()
             } else throw new Error //wrong food user
         } catch (error) {
             res.status(401).json({
