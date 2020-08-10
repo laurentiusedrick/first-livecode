@@ -7,7 +7,6 @@ class Access {
     static async Authenticate(req,res,next) {
         try {
             let credential = jwt.verify(req.headers.access_token,"123456")
-        
             const user = await User.findOne({where:{email:credential.email}})
             if (user) {
                 req.access_id = credential.id
@@ -24,7 +23,6 @@ class Access {
         try {
             let food = await Food.findByPk(req.params.id)
             if (food.UserId === req.access_id) {
-                console.log("success authorize")
                 next()
             } else throw new Error //wrong food user
         } catch (error) {

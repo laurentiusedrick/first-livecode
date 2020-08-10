@@ -18,4 +18,4 @@ app.get("/foods",Access.Authenticate,Controllers.get)
 app.delete("/foods/:id",Access.Authenticate,Access.Authorize,Controllers.delete)
 
 
-app.listen(port,()=>console.log(`Restaurant listening at port:${port}`))
+app.listen(port,()=>console.log(`Foods listening at port:${port}`))

@@ -104,20 +104,22 @@
             <form>
               <div class="row">
                 <div class="col-md-12">
-                  <input type="text" class="form-control my-2" placeholder="Food name">
-                  <input type="price" class="form-control my-2" placeholder="Price" min="0">
+                  
+                  <input type="text" class="form-control my-2" placeholder="Food name" id="form-add-text">
+                  <input type="number" class="form-control my-2" placeholder="Price" min="0"id="form-add-price">
                   <div class="form-group my-2">
-                    <textarea class="form-control" rows="3" placeholder="Ingredients"></textarea>
+                    <textarea class="form-control" rows="3" placeholder="Ingredients" id="form-add-ingredients"></textarea>
                   </div>
                   <label for="tag">Choose food tag:</label>
-                  <select class="form-control">
-                    <option value="ayam">ayam</option>
+                  <select class="form-control" id="form-add-tag">
+                    <option value="ayam" selected>ayam</option>
                     <option value="ikan">ikan</option>
                     <option value="other">other</option>
                   </select>
                 </div>
                 <div class="col-md-8 mx-auto mt-3"><button class="btn btn-primary btn-block"
-                    type="submit">Submit</button></div>
+                    type="submit" id="submit-add">Submit</button></div>
+                
               </div>
             </form>
           </div>
@@ -131,7 +133,7 @@
       </div>
 
       <!-- List Food -->
-      <div class="col-md-10">
+      <div class="col-md-10" id="main-list">
 
       </div>
     </div>

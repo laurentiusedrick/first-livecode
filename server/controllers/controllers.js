@@ -15,7 +15,7 @@ class Controllers {
                 "email":result.email
             })
         } catch (error) {
-            console.log(error)
+            // console.log(error)
             res.status(500).json(error)
         }
     }
@@ -42,7 +42,7 @@ class Controllers {
                 throw new Error //email error
             }
         } catch (error) {
-            console.log(error)
+            // console.log(error)
             res.status(400).json({
                 "message":"Wrong email/password combination"
             })
@@ -70,7 +70,7 @@ class Controllers {
                 UserId:result.UserId,
             })
         } catch (error) {
-            console.log(error)
+            // console.log(error)
             res.status(400).json(error)
         }
     }
@@ -89,7 +89,7 @@ class Controllers {
             
             res.status(200).json(arr)
         } catch (error) {
-            console.log(error)
+            // console.log(error)
             res.status(500).json({
                 message:"Internal Error"
             })
@@ -99,7 +99,7 @@ class Controllers {
         let result = await Food.destroy({where:{id:req.params.id}})
         res.status(200).json({
             "message":"Successfully delete foods from your menu"
-        })
+                })
     }
     //foods controllers ends here
 }
